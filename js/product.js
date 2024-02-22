@@ -5,9 +5,7 @@ const addToCartBtn = document.querySelector(".add-to-cart-btn");
 const addToCartDiv = document.querySelector(".add-to-cart-div");
 let productData = [];
 let selectedProduct;
-const shoppingCart = JSON.parse(window.localStorage.getItem("Rainy Days shopping cart")) || [];
 const shoppingBagBtn = document.querySelector(".shopping-bag-btn");
-const shoppingBag = document.getElementById("shopping-bag");
 
 
 import {toggleShoppingBag} from "./shoppingBag.js";
@@ -35,8 +33,9 @@ async function displaySingleProduct() {
                 singleProduct.innerHTML += `
                   <div>
             <img src="${jacket.image}" alt="Image of ${jacket.title}">
-            <p>${jacket.title}</p>
+            <h4>${jacket.title}</h4>
             <p>${jacket.price}</p>
+            <p>${jacket.description}</p>
                   </div>
                 `
             for (let i = 0; i < jacket.sizes.length; i++){
@@ -58,14 +57,19 @@ async function displaySingleProduct() {
 displaySingleProduct()
 
 addToCartDiv.addEventListener("click", (event) => {
+    const shoppingCart = JSON.parse(window.localStorage.getItem("myShoppingCart")) || [];
     const selectedSize = sizeSelector.value;
     if (event.target === addToCartBtn) {
-        if (selectedSize !== "default") { // Changed condition here
+        if (selectedSize !== "default") {
             console.log(selectedSize);
             selectedProduct.selectedSize = selectedSize;
             shoppingCart.push(selectedProduct);
-            window.localStorage.setItem("Rainy Days shopping cart", JSON.stringify(shoppingCart));
+            window.localStorage.setItem("myShoppingCart", JSON.stringify(shoppingCart));
             console.log("Product added to cart");
+
+
+            displayShoppingBag();
+
         } else {
             alert("Please select a size before adding to cart.");
         }
@@ -74,8 +78,8 @@ addToCartDiv.addEventListener("click", (event) => {
 
 import { displayShoppingBag } from "./shoppingBag.js";
 
-// Call the displayShoppingBag function to display shopping bag items
 displayShoppingBag();
+
 
 
 
