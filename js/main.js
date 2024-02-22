@@ -82,4 +82,6 @@ function displayProduct(productData) {
 
 fetchProducts()
 
+import { displayShoppingBag } from "./shoppingBag.js";
 
+displayShoppingBag();
