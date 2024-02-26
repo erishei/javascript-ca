@@ -19,7 +19,6 @@ async function fetchProducts() {
 
         displayProduct(productData);
 
-        console.log(productData);
     } catch (error) {
         alert("Couldn't load jackets");
     }
@@ -29,7 +28,6 @@ async function fetchProducts() {
 dropDownGenderList.addEventListener("change",
     function () {
         let genderToFilterBy = dropDownGenderList.value;
-        console.log(genderToFilterBy);
 
         if (genderToFilterBy === "show-all") {
             fetchProducts();
@@ -61,7 +59,6 @@ async function filterByGender(genderToFilterBy) {
             }
         })
 
-        console.log(productData);
     } catch (error) {
         alert("Couldn't load jackets");
     }
