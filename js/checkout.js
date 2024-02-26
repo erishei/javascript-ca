@@ -19,7 +19,7 @@ function displayCheckoutSummary() {
         totalPrice += product.price;
     });
 
-    summaryHTML += `<p>Total: $${totalPrice.toFixed(2)}</p>`;
+    summaryHTML += `<p>Total: <span id="total-span">$${totalPrice.toFixed(2)}</span></p>`;
     checkoutSummaryDiv.innerHTML = summaryHTML;
 
     const deleteButtons = document.querySelectorAll(".delete-btn");

@@ -91,7 +91,7 @@ nav {
 
 #total-span {
     font-size: 1.2rem;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
 
 #checkout-btn {

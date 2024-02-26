@@ -34,6 +34,32 @@ form {
     margin-bottom: 1rem;
     padding: 1rem;
     height: fit-content;
+    border-radius: .5rem;
+    background-color: #E7C6FF;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+input {
+    border-radius: .2rem;
+    border: none;
+    height: 1.5rem;
+    padding: .5rem;
+}
+
+
+#checkout-submit-btn {
+    height: 2rem;
+    border: 1px solid #A2D2FF;
+    background-color: #BDE0FE;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin-top: .5rem;
+}
+
+#checkout-submit-btn:hover {
+    box-shadow: 5px 3px 3px #A2D2FF;
 }
 
 @media (min-width: 800px) {
