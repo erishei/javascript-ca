@@ -6,6 +6,7 @@ const addToCartDiv = document.querySelector(".add-to-cart-div");
 let productData = [];
 let selectedProduct;
 const shoppingBagBtn = document.querySelector(".shopping-bag-btn");
+const checkOutUrl = "./checkout.html";
 
 
 import {toggleShoppingBag} from "./shoppingBag.js";
@@ -31,10 +32,10 @@ async function displaySingleProduct() {
                 selectedProduct = jacket;
                 console.log(selectedProduct);
                 singleProduct.innerHTML += `
-                  <div>
-            <img src="${jacket.image}" alt="Image of ${jacket.title}">
+                  <div class="product-div">
+            <img class="product-img" src="${jacket.image}" alt="Image of ${jacket.title}">
             <h4>${jacket.title}</h4>
-            <p>${jacket.price}</p>
+            <p>$${jacket.price}</p>
             <p>${jacket.description}</p>
                   </div>
                 `
@@ -54,7 +55,7 @@ async function displaySingleProduct() {
     loadingDiv.style.display = "none";
 }
 
-displaySingleProduct()
+displaySingleProduct(checkOutUrl)
 
 addToCartDiv.addEventListener("click", (event) => {
     const shoppingCart = JSON.parse(window.localStorage.getItem("myShoppingCart")) || [];
@@ -68,7 +69,7 @@ addToCartDiv.addEventListener("click", (event) => {
             console.log("Product added to cart");
 
 
-            displayShoppingBag();
+            displayShoppingBag(checkOutUrl);
 
         } else {
             alert("Please select a size before adding to cart.");
@@ -78,8 +79,4 @@ addToCartDiv.addEventListener("click", (event) => {
 
 import { displayShoppingBag } from "./shoppingBag.js";
 
-displayShoppingBag();
-
-
-
-
+displayShoppingBag(checkOutUrl);

@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+#loader h3 {
+    color: hotpink;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -9,7 +13,7 @@ nav {
     width: 100vw;
     height: 64px;
     padding: 32px;
-    background-color: pink;
+    background-color: #FFC8DD;
     margin: 0;
 }
 
@@ -21,16 +25,18 @@ nav {
     justify-content: center;
     z-index: 5;
     cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    background-color: #BDE0FE;
+}
+
+.shopping-bag-btn:hover {
+    box-shadow: 5px 2px 2px #A2D2FF;
 }
 
 .bag-icon {
-    position: absolute;
     height: 40px;
     width: 40px;
-}
-
-img {
-    width: 250px;
 }
 
 #shopping-bag {
@@ -38,9 +44,16 @@ img {
     display: none;
     min-height: 100vh;
     width: 33%;
-    background-color: darkslateblue;
+    background-color: #C8B6FF;
     position: absolute;
     right: 0;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#shopping-bag img {
+    border-radius: .1rem;
 }
 
 .shopping-bag-scrollable {
@@ -50,17 +63,46 @@ img {
 
 .shopping-bag-fixed {
     position: fixed;
-    /*top: 0;*/
-    /*bottom: 0;*/
-    /*right: 0;*/
-    /*left: 0;*/
 }
 
 #shopping-bag img {
     width: 128px;
 }
 
-.item-count {
-    position: absolute;
-    z-index: 100;
+.jacket-item {
+    width: fit-content;
+    padding: .5rem;
+    margin-bottom: 1rem;
+    border: 1px dotted #FFAFCC;
+    background-color: #FFE5EC;
 }
+
+.delete-btn {
+    height: 2rem;
+    border: 1px solid #C8B6FF;
+    background-color: #E7C6FF;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    box-shadow: 5px 3px 3px #C8B6FF;
+}
+
+#total-span {
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+
+#checkout-btn {
+    height: 2rem;
+    border-radius: .5rem;
+    border: 1px solid #A2D2FF;
+    background-color: #BDE0FE;
+    cursor: pointer;
+}
+
+#checkout-btn:hover {
+    box-shadow: 5px 3px 3px #A2D2FF;
+}
+

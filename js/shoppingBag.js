@@ -10,7 +10,7 @@ export function toggleShoppingBag () {
     }
 }
 
-export function displayShoppingBag() {
+export function displayShoppingBag(checkOutUrl) {
     let jacketData = JSON.parse(window.localStorage.getItem("myShoppingCart")) || [];
 
     console.log("Jacket data from local storage:", jacketData);
@@ -25,10 +25,10 @@ export function displayShoppingBag() {
         jacketsHTML += `
             <div class="jacket-item">
                 <img src="${jacket.image}" alt="${jacket.description}">
-                <p>${jacket.title}</p>
+                <h4>${jacket.title}</h4>
                 <p>Size: ${jacket.selectedSize}</p>
-                <p>${jacket.price}</p>
-                <button class="delete-btn" data-index="${index}">Delete</button>
+                <p>$${jacket.price}</p>
+                <button class="delete-btn" data-index="${index}">Remove</button>
             </div>
         `;
         totalPrice += jacket.price;
@@ -38,7 +38,7 @@ export function displayShoppingBag() {
 
     shoppingBagDiv.innerHTML = `
         <div id="jackets-container">${jacketsHTML}</div>
-        <p id="total-price">Total Price: $${totalPrice.toFixed(2)}</p>
+        <p id="total-price">Total Price: <span id="total-span">$${totalPrice.toFixed(2)}</span></p>
         <button id="checkout-btn">Proceed to checkout</button>
     `;
 
@@ -52,7 +52,7 @@ export function displayShoppingBag() {
             jacketData.splice(index, 1);
             window.localStorage.setItem("myShoppingCart", JSON.stringify(jacketData));
 
-            displayShoppingBag();
+            displayShoppingBag(checkOutUrl);
 
         })
     })
@@ -60,7 +60,6 @@ export function displayShoppingBag() {
     checkoutBtn.addEventListener('click', () => {
         if (jacketData.length === 0) {
             alert("You have no items in your bag to proceed with.");
-        } else location.href = "./checkout.html";
+        } else location.href = checkOutUrl;
     })
 }
-
